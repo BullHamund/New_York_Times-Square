@@ -1,5 +1,9 @@
 body {
     background-image: url("https://i.pinimg.com/originals/c5/14/3f/c5143f91acd65f57e188ed85454a3a76.jpg");
+    background-size: cover;
+    background-position: center center;
+    min-height: 1000px;
+    background-attachment: fixed;
 }
 
 img {
@@ -7,6 +11,12 @@ img {
     width: 960px;
     margin-left: 30px;
 }
+
+@media screen and (max-width: 670px){
+    body{
+         min-height: 500px;
+     }
+ }
 
 
 
