@@ -1,4 +1,4 @@
-var apiKey = "https://api.ipify.org/";
+var apiKey = "https://api6.ipify.org/";
 var theIP = "";
 
 $(document).ready(function () {
