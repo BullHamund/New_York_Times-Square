@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search and Watch</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold text-warning" href="#"> Cinephile Central </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 jumbotron my-3">
+                <div class="form-check ml-3">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Title
+                    </label>
+                    <input class="form-check-input ml-2" type="radio" name="exampleRadios" id="exampleRadios2"
+                        value="option2">
+                    <label class="form-check-label ml-4" for="exampleRadios2">
+                        Genre
+                    </label>
+                </div>
+
+                <div class="input-group col-md-11">
+
+                    <input type="text" class="form-control" id="movie-search" placeholder=" "
+                        aria-describedby="inputGroupPrepend3" required>
+                    <div class="card-body">
+                    </div>
+
+                    <button type="submit" class="btn btn-default" id="run-search">
+                        <i class="fa fa-search"></i> </button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <br>
+
+                <!-- This card will initially be made up of a card and wells for each of the articles retrieved -->
+                <div class="card">
+
+                    <!-- card Heading for the retrieved articles box -->
+                    <div class="card-header">
+                        <strong>
+                            <i class="fa fa-table"></i> Results</strong>
+                    </div>
+
+                    <!-- This main card will hold each of the resulting articles -->
+                    <div class="card-body" id="article-section">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Code to the JavaScript File -->
+    <script src="nytApi.js"></script>
+
+
+</body>
+
+</html>
