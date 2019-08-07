@@ -17,5 +17,7 @@ function grabUserIp() {
             theIP = reply;
         }
         console.log(theIP);
+    }).fail(function (e) {
+        document.write("<h1>Please disable adblock and refresh for this page as we need to grab your IP.</h1>");
     });
 }
