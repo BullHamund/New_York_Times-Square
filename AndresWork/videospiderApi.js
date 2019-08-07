@@ -33,12 +33,18 @@ function getTicket(){
 }
 
 function getVideo(){
-    $.ajax({
-        url: videoUrl,
-        method: 'GET'
-    }).done(function(content){
-        console.log(content);
-        var newWindow = window.open();
-        newWindow.document.write(content);
+    var btn = $("<button>");
+    btn.text("hello");
+    btn.click(function(){
+        window.open(videoUrl);
     });
+    $("body").append(btn);
+    // $.ajax({
+    //     url: videoUrl,
+    //     method: 'GET',
+    // }).done(function(content){
+    //     console.log(content);
+    //     var newWindow = window.open();
+    //     newWindow.document.write(content);
+    // });
 }
