@@ -23,7 +23,10 @@ function getTicket(){
     }).done(function(content){
         console.log(content);
         ticketID = content;
-        videoUrl = `https://cors-anywhere.herokuapp.com/https://videospider.stream/getvideo?key=fht9j7i4vSwRR9Ck&video_id=${omdbId}&ticket=${ticketID}`;
+        //Used to test locally
+        //videoUrl = `https://cors-anywhere.herokuapp.com/https://videospider.stream/getvideo?key=fht9j7i4vSwRR9Ck&video_id=${omdbId}&ticket=${ticketID}`;
+        //Used on live
+        videoUrl = `https://videospider.stream/getvideo?key=fht9j7i4vSwRR9Ck&video_id=${omdbId}&ticket=${ticketID}`;
         console.log(videoUrl);
         getVideo();
     });
