@@ -3,8 +3,8 @@ var videoUrl = "";
 var ticketID = "";
 
 $(document).ready(function(){
-    $("#search").click(function(){
-        var query = $("#input").val();
+    $("#run-search").click(function(){
+        var query = $("#movie-search").val();
         console.log("hello");
         findMovieId(query);
     });
