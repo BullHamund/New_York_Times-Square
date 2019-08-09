@@ -6,7 +6,8 @@
 html,
 body {
     height: 100%;
-    background-image: url("assets/images/nyc.jpg");
+    /*background-color: rgb(241, 243, 225);*/
+    background-image: url("https://i.pinimg.com/originals/c5/14/3f/c5143f91acd65f57e188ed85454a3a76.jpg");
     background-size: cover;
     background-position: center center;
     min-height: 1000px;

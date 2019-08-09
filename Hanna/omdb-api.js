@@ -8,10 +8,6 @@ function findMovieId(str) {
         method: "GET"
     }).then(function(response) {
         omdbId = response.imdbID;
-
-
+        updateUrl();
     });
-
-
 }
-findMovieId("The Godfather");
