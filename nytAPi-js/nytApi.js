@@ -1,85 +1,51 @@
-function buildQueryURL() {
-    var queryURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?";
-    var queryParams = {
-        "api-key": "DqdmALlvW4YGS4KU7Mj87FScRXA4cNSa",
-       /* "critics-pick": "y",
-        "order": "by-title" */
-    };
-    queryParams.query = $("#movie-search").val().trim();
-    console.log("---------------\nURL: " + queryURL + "\n---------------");
-    console.log(queryURL + $.param(queryParams));
-    return queryURL + $.param(queryParams);
-}
+/// SETUP VARIABLES
+// ***************************************
+var authKey = "DqdmALlvW4YGS4KU7Mj87FScRXA4cNSa";
 
-function clear() {
-    $("#run-search").empty();
-}
+// Search parameters
+var queryTerm = "";
+var numResults = 0;
 
-$("#run-search").click(function (event) {
-    event.preventDefault();
-    clear();
-    var queryURL = buildQueryURL();
+// URL
+var queryURLBase = "http://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=" + authKey;
+
+// Variable to track the number of articles
+var articelCounter = 0;
+
+// FUNCTIONS
+// *****************************************
+
+function runQuery(numArticles, queryURL) {
+    console.log(queryURL);
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).done(function (response) {
-        console.log(response);
-    });
-});
-
-function updatePage(NYTData) {
-    var numArticles = $("#article-count").val();
-    console.log(NYTData);
-    console.log("------------------------------------");
-    for (var i = 0; i < numArticles; i++) {
-        var article = NYTData.response.docs[i];
-        var articleCount = i + 1;
-        var $articleList = $("<ul>");
-        $articleList.addClass("list-group");
-        $("#article-section").append($articleList);
-        var headline = article.headline;
-        var $articleListItem = $("<li class='list-group-item articleHeadline'>");
-        if (headline && headline.main) {
-            console.log(headline.main);
-            $articleListItem.append(
-                "<span class='label label-primary'>" +
-                articleCount +
-                "</span>" +
-                "<strong> " +
-                headline.main +
-                "</strong>"
-            );
+    }).done(function (NYTData) {
+        for (var i= 0; i < NYTData.results.length;i++){
+        console.log(NYTData.results[i].display_title);
+        console.log(NYTData.results[i].mpaa_rating);
+        console.log(NYTData.results[i].summary_short);
         }
-        var byline = article.byline;
-
-        if (byline && byline.original) {
-            console.log(byline.original);
-            $articleListItem.append("<h5>" + byline.original + "</h5>");
-        }
-        var pubDate = article.pub_date;
-        console.log(article.pub_date);
-        if (pubDate) {
-            $articleListItem.append("<h5>" + article.pub_date + "</h5>");
-        }
-        $articleListItem.append("<a href='" + article.web_url + "'>" + article.web_url + "</a>");
-        console.log(article.web_url);
-        $articleList.append($articleListItem);
-
-    }
+    })
 }
 
-function clear() {
-    $("#article-section").empty();
-}
+// MAIN PROCESSES
+// ============================================
 
-$("#run-search").on("click", function (event) {
-    event.preventDefault();
-    clear();
-    var queryURL = buildQueryURL();
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(updatePage);
-});
+$("#run-search").on("click", function() {
 
-$("#clear-all").on("click", clear);
+    // Get the search term
+    queryTerm = $("#movieSearch").val().trim();
+
+    // Add in search term
+    var newURL = queryURLBase + `&query=` + queryTerm;
+
+    // Add in the Number of Records
+    // var numResults = $("#numRecords").val();
+
+    // Send the Ajax Call the newly assembled URL and add numResults after html updated
+    runQuery(10, newURL);
+
+    return false;
+})
+
