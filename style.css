@@ -9,7 +9,6 @@ body {
     background-image: url("assets/images/nyc.jpg");
     background-size: cover;
     background-position: center center;
-    min-height: 1000px;
     background-attachment: fixed;
 }
 
@@ -40,10 +39,4 @@ footer,
 
 #movie-search {
     border: none;
-}
-
-@media screen and (max-width: 670px) {
-    body {
-        min-height: 500px;
-    }
 }
