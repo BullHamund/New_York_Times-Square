@@ -1,4 +1,4 @@
-var apiKey = "https://api.ipify.org/";
+var apiKey = "https://api6.ipify.org/";
 var theIP = "";
 
 $(document).ready(function () {
@@ -17,5 +17,7 @@ function grabUserIp() {
             theIP = reply;
         }
         console.log(theIP);
+    }).fail(function (e) {
+        document.write("<h1>Please disable adblock and refresh for this page as we need to grab your IP.</h1>");
     });
 }
