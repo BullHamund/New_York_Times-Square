@@ -6,7 +6,7 @@
 html,
 body {
     height: 100%;
-    background-image: url("assets/images/nyc.jpg");
+    background-image: url(nyc.jpg);
     background-size: cover;
     background-position: center center;
     min-height: 1000px;
@@ -33,4 +33,26 @@ footer,
     body {
         min-height: 500px;
     }
+}
+
+ .card {
+     width: 75%;
+     margin: auto;
+     margin-top: 50px;
+     margin-bottom: 500px;
+
+ }
+
+.card a {
+    align-self: center;
+    margin-left: 25px; 
+}
+
+.footer {
+    color: gold;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
 }

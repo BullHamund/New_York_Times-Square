@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background-image: url("../images/nyc.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+h2 {
+    font-family: 'Monoton', cursive;
+}
+
+h4 {
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+#mainwapper {
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+    margin: 0 auto -70px;
+}
+
+img {
+    height: 300px;
+    opacity: 0.8;
+}
+
+footer,
+.push {
+    height: 70px;
+}
+
+#movie-search {
+    border: none;
+}
