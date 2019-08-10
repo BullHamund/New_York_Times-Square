@@ -6,7 +6,7 @@
 html,
 body {
     height: 100%;
-    background-image: url("assets/images/nyc.jpg");
+    background-image: url("../images/nyc.jpg");
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
