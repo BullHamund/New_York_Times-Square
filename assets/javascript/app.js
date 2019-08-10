@@ -1,6 +1,5 @@
 var apiKey = "DqdmALlvW4YGS4KU7Mj87FScRXA4cNSa";
 var apiUrl = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=" + keyword + "&api-key=" + apiKey;
-var resultArray;
 var keyword = "";
 
 
@@ -40,7 +39,6 @@ function callAjax() {
 
             $(".detail").on("click", function() {
                 var index = $(this).attr('data-choice');
-                //var jsonToSave = JSON.stringify($(this).attr('data-choice'))
                 localStorage.setItem("summary_short", response.results[index].summary_short);
                 localStorage.setItem("title", response.results[index].display_title);
                 localStorage.setItem("subtitle", response.results[index].headline);
