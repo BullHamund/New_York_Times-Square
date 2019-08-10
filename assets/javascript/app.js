@@ -27,7 +27,7 @@ function callAjax() {
     }).done(function(response) {
 
         console.log(response);
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < response.results.length; i++) {
             var resultDiv = $("<div class='card py-2 pl-2 my-2'>");
 
             var titleDiv = $("<h4>").text(response.results[i].display_title);
