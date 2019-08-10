@@ -1,85 +1,59 @@
-function buildQueryURL() {
-    var queryURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?";
-    var queryParams = {
-        "api-key": "DqdmALlvW4YGS4KU7Mj87FScRXA4cNSa",
-       /* "critics-pick": "y",
-        "order": "by-title" */
-    };
-    queryParams.query = $("#movie-search").val().trim();
-    console.log("---------------\nURL: " + queryURL + "\n---------------");
-    console.log(queryURL + $.param(queryParams));
-    return queryURL + $.param(queryParams);
-}
+var apiKey = "DqdmALlvW4YGS4KU7Mj87FScRXA4cNSa";
+var apiUrl = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=" + keyword + "&api-key=" + apiKey;
+var resultArray;
+var keyword = "";
 
-function clear() {
-    $("#run-search").empty();
-}
 
-$("#run-search").click(function (event) {
-    event.preventDefault();
-    clear();
-    var queryURL = buildQueryURL();
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).done(function (response) {
-        console.log(response);
+
+$(document).ready(function() {
+    $("#run-search").on("click", function(event) {
+        event.preventDefault();
+
+        $("#display-review").empty();
+        keyword = $("#movie-search").val();
+
+        callAjax();
+        $("#movie-search").val("");
+
     });
 });
 
-function updatePage(NYTData) {
-    var numArticles = $("#article-count").val();
-    console.log(NYTData);
-    console.log("------------------------------------");
-    for (var i = 0; i < numArticles; i++) {
-        var article = NYTData.response.docs[i];
-        var articleCount = i + 1;
-        var $articleList = $("<ul>");
-        $articleList.addClass("list-group");
-        $("#article-section").append($articleList);
-        var headline = article.headline;
-        var $articleListItem = $("<li class='list-group-item articleHeadline'>");
-        if (headline && headline.main) {
-            console.log(headline.main);
-            $articleListItem.append(
-                "<span class='label label-primary'>" +
-                articleCount +
-                "</span>" +
-                "<strong> " +
-                headline.main +
-                "</strong>"
-            );
-        }
-        var byline = article.byline;
-
-        if (byline && byline.original) {
-            console.log(byline.original);
-            $articleListItem.append("<h5>" + byline.original + "</h5>");
-        }
-        var pubDate = article.pub_date;
-        console.log(article.pub_date);
-        if (pubDate) {
-            $articleListItem.append("<h5>" + article.pub_date + "</h5>");
-        }
-        $articleListItem.append("<a href='" + article.web_url + "'>" + article.web_url + "</a>");
-        console.log(article.web_url);
-        $articleList.append($articleListItem);
-
-    }
-}
-
-function clear() {
-    $("#article-section").empty();
-}
-
-$("#run-search").on("click", function (event) {
-    event.preventDefault();
-    clear();
-    var queryURL = buildQueryURL();
+function callAjax() {
+    apiUrl = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=" + keyword +
+        "&api-key=" + apiKey;
     $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(updatePage);
-});
+        url: apiUrl,
+        method: 'GET'
+    }).done(function(response) {
+        var dataToArray =_.values(response.results);
+        var results = response.results;
+        var organizedResults = _.sortBy(dataToArray, ["publication_date"]).reverse()
+        console.log(organizedResults);
+        for (var i = 0; i < organizedResults.length; i++) {
+            
+            var resultDiv = $("<div class='card py-2 pl-2 my-2'>");
 
-$("#clear-all").on("click", clear);
+            var titleDiv = $("<h4>").text(organizedResults[i].display_title);
+            var subtitle = $("<h6 >").text(organizedResults[i].headline);
+            var reviewSummary = $("<p>").text(organizedResults[i].summary_short);
+            var detail = $(`<a class='col-md-3 btn btn-info' href=${organizedResults[i].link.url} target="_blank" role='button'>Review Detail</a> <br>`);
+            resultDiv.append(titleDiv, subtitle, reviewSummary, detail);
+            resultDiv.append(`<button class="col-md-3 btn-info detail" data-choice="${i}">` + "Streaming" + "<br>");
+            $("#display-review").append(resultDiv);
+
+            $(".detail").on("click", function() {
+                var index = $(this).attr('data-choice');
+                //var jsonToSave = JSON.stringify($(this).attr('data-choice'))
+                localStorage.setItem("summary_short", organizedResults[index].summary_short);
+                localStorage.setItem("title", organizedResults[index].display_title);
+                localStorage.setItem("subtitle", organizedResults[index].headline);
+                localStorage.setItem("nylink", organizedResults[index].link.url);
+                document.location.href = "detail.html";
+            });
+
+
+
+        }
+    });
+}
+
