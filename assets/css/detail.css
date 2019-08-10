@@ -36,10 +36,19 @@ footer,
     width: 75%;
     margin: auto;
     margin-top: 50px;
-    margin-bottom: 500px;
+    margin-bottom: 50px;
 }
 
 .card a {
     align-self: center;
     margin-left: 25px;
+}
+
+.utellyResult{
+    height: 30rem;
+    width: 18rem;
+}
+.utellyResult a > img{
+    width: 100px;
+    height: 50px;
 }

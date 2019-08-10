@@ -37,7 +37,7 @@ function generateBlocks(obj) {
             content.picture = "../assets/images/na.png";
         }
         //Create bootstrap card components with obj information to fill in required content
-        var cardContainer = $("<div class='card' style='width: 18rem;'>");
+        var cardContainer = $("<div class='card utellyResult' style='width: 18rem;'>");
         var cardImage = $(`<img src='${content.picture}' class='card-img-top' alt='${content.name}'>`);
         var cardBody = $("<div class='card-body'>");
         var cardTitle = $(`<h5 class="card-title">${content.name}</h5>`);
