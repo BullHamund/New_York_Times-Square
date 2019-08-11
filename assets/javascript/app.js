@@ -25,16 +25,17 @@ function callAjax() {
         method: 'GET'
     }).done(function(response) {
 
-        console.log(response);
         for (var i = 0; i < response.results.length; i++) {
             var resultDiv = $("<div class='card py-2 pl-2 my-2'>");
 
             var titleDiv = $("<h4>").text(response.results[i].display_title);
             var subtitle = $("<h6 >").text(response.results[i].headline);
-            var reviewSummary = $("<p>").text(response.results[i].summary_short);
-            var detail = $(`<a class='col-md-3 btn btn-info' href=${response.results[i].link.url} target="_blank" role='button'>Review Detail</a> <br>`);
-            resultDiv.append(titleDiv, subtitle, reviewSummary, detail);
-            resultDiv.append(`<button class="col-md-3 btn-info detail" data-choice="${i}">` + "Streaming" + "<br>");
+            var openingD = $("<p class='mb-1'>").text("Opening Date: " + response.results[i].opening_date);
+            var rating = $("<p class='mb-1'>").text("Rating: " + response.results[i].mpaa_rating);
+            var reviewSummary = $("<p class='mb-2'>").text(response.results[i].summary_short);
+            var detail = $(`<a class='col-md-4 btn mb-2 btn-info' href=${response.results[i].link.url} target="_blank" role='button'>Review Detail</a>`);
+            resultDiv.append(titleDiv, subtitle, openingD, rating, reviewSummary, detail);
+            resultDiv.append(`<button class="col-md-4 mb-2 btn-info detail" data-choice="${i}">` + "Streaming" + "<br>");
             $("#display-review").append(resultDiv);
 
             $(".detail").on("click", function() {
