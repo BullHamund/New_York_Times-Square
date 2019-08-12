@@ -26,8 +26,7 @@ function callAjax() {
         method: 'GET'
     }).done(function(response) {
         var dataToArray =_.values(response.results);
-        var results = response.results;
-        var organizedResults = _.sortBy(dataToArray, ["publication_date"]).reverse()
+        var organizedResults = _.sortBy(dataToArray, ["publication_date"]).reverse();
         console.log(organizedResults);
         for (var i = 0; i < organizedResults.length; i++) {
             

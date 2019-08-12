@@ -48,7 +48,7 @@ function generateBlocks(obj) {
 
             //Only display places that have an actual URL
             if (url.url != null) {
-                var linkIcon = $(`<a href='${url.url}'><img src='${url.icon}'></a>`);
+                var linkIcon = $(`<a href='${url.url}' target="_blank"><img src='${url.icon}'></a>`);
                 cardBody.append(linkIcon);
             }
         });
