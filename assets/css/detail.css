@@ -16,24 +16,14 @@ body {
     height: auto !important;
     height: 100%;
     min-height: 100%;
-    margin: 0 auto -100px;
+    margin: 0 auto -70px;
 }
 
 h2 {
     font-family: 'Monoton', cursive;
 }
 
-img {
-    height: 300px;
-}
-
-footer,
-.push {
-    height: 70px;
-}
-
 .card {
-    width: 75%;
     margin: auto;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -44,11 +34,28 @@ footer,
     margin-left: 25px;
 }
 
-.utellyResult{
+footer,
+.push {
+    height: 70px;
+}
+
+.card {
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.card a {
+    align-self: center;
+    margin-left: 25px;
+}
+
+.utellyResult {
     height: 32rem;
     width: 18rem;
 }
-.utellyResult a > img{
+
+.utellyResult a>img {
     width: 100px;
     height: 50px;
 }
