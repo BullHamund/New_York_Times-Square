@@ -31,8 +31,10 @@ function callAjax() {
 
             var titleDiv = $("<h4>").text(organizedResults[i].display_title);
             var subtitle = $("<h6 >").text(organizedResults[i].headline);
+            if(organizedResults[i].opening_date === null){ organizedResults[i].opening_date = "N/A";}
+            if(organizedResults[i].mpaa_rating === ""){organizedResults[i].mpaa_rating = "NR";}
             var openingD = $("<p class='mb-1'>").text("Opening Date: " + organizedResults[i].opening_date);
-            var rating = $("<p class='mb-1'>").text("Rating: " + organizedResults[i].mpaa_rating);
+            var rating = $("<p class='mb-1'>").text("Rated: " + organizedResults[i].mpaa_rating);
             var reviewSummary = $("<p class='mb-2'>").text(organizedResults[i].summary_short);
             var detail = $(`<a class='col-md-4 btn mb-2 btn-info' href=${organizedResults[i].link.url} target="_blank" role='button'>Review Detail</a>`);
             resultDiv.append(titleDiv, subtitle, openingD, rating, reviewSummary, detail);
