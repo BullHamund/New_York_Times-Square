@@ -10,7 +10,7 @@ Cinephile Central was created to serve as a one-stop shop for all movie fans. Us
 
 -Each movie result includes link to a secoundary page that features the full description and movie streaming links.
 
-### Prerequisites
+### How to use
 
 How to operate and navigate the website
 ![Step 1](https://raw.githubusercontent.com/BullHamund/New_York_Times-Square/master/assets/images/s1.png)
@@ -40,12 +40,12 @@ more sites that host the movie. Or try researching for the movie.
 * [Bootstrap](https://getbootstrap.com/docs/4.3) - CSS framework used
 * [jQuery](https://api.jquery.com) - Javascript library used
 * [ajax](https://api.jquery.com/jquery.ajax/) - Asynchronous JavaScript 
-* [Movie Reviews API](https://developer.nytimes.com/docs/movie-reviews-api) - API for movie reviews
+* [NY Times API](https://developer.nytimes.com/docs/movie-reviews-api) - API for movie reviews
 * [OMDb API](http://www.omdbapi.com/) - API for movie information and photos
 * [Utelly](https://rapidapi.com/utelly/api/utelly)- API for universal movie search
 * [ipify](https://www.ipify.org/) - API used for IP Addresses
 * [VideoSpider](https://videospider.in/) - API used for movie links
-
+* [lodash](https://lodash.com) - API used to sort results in Ascending date order
 
 ## Authors
 
