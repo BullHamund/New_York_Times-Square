@@ -2,12 +2,15 @@ var ticketUrl = "";
 var videoUrl = "";
 var ticketID = "";
 var query;
+
+var vsKey; //Insert public key here
+var vsSecretKey; //Insert secret key here
 $(document).ready(function () {
     query = localStorage.getItem("title");
 });
 
 function updateUrl() {
-    ticketUrl = `https://cors-anywhere.herokuapp.com/https://videospider.in/getticket.php?key=fht9j7i4vSwRR9Ck&secret_key=a8v52mbfjd2enkcqq6pf943muhpl5t&video_id=${omdbId}&ip=${theIP}`;
+    ticketUrl = `https://cors-anywhere.herokuapp.com/https://videospider.in/getticket.php?key=${vsKey}&secret_key=${vsSecretKey}&video_id=${omdbId}&ip=${theIP}`;
     console.log(ticketUrl);
     getTicket();
 };
@@ -19,7 +22,7 @@ function getTicket() {
     }).done(function (content) {
         console.log("Content",content);
         ticketID = content;
-        videoUrl = `https://videospider.stream/getvideo?key=fht9j7i4vSwRR9Ck&video_id=${omdbId}&ticket=${ticketID}`;
+        videoUrl = `https://videospider.stream/getvideo?key=${vsKey}&video_id=${omdbId}&ticket=${ticketID}`;
         getVideo();
     });
 }
