@@ -10,12 +10,29 @@ Cinephile Central was created to serve as a one-stop shop for all movie fans. Us
 
 -Each movie result includes link to a secoundary page that features the full description and movie streaming links.
 
-### Prerequisites
+### How to use
 
-What things you need to install the software and how to install them
-
+How to operate and navigate the website
+![Step 1](https://raw.githubusercontent.com/BullHamund/New_York_Times-Square/master/assets/images/s1.png)
 ```
-Give examples
+Type in your search therm and click search
+```
+![Step 2](https://raw.githubusercontent.com/BullHamund/New_York_Times-Square/master/assets/images/s2.png)
+```
+Scroll through the results and select "Review Detail" to read the full article
+ or "Streaming" to view locations to watch the movie.
+```
+![Step 3](https://raw.githubusercontent.com/BullHamund/New_York_Times-Square/master/assets/images/s3.png)
+```
+Here you can see where you are able to stream or purchase the movie.
+There is also a button for free streaming of the movie.
+```
+![Step 4](https://raw.githubusercontent.com/BullHamund/New_York_Times-Square/master/assets/images/s4.png)
+```
+The free stream option contains lots of ads. Please use an adblocker for your browser.
+We recommend uBlock Origin.
+If the movie stream is broken or blocked, please select the blue button for
+more sites that host the movie. Or try researching for the movie.
 ```
 
 ## Built With
@@ -23,12 +40,12 @@ Give examples
 * [Bootstrap](https://getbootstrap.com/docs/4.3) - CSS framework used
 * [jQuery](https://api.jquery.com) - Javascript library used
 * [ajax](https://api.jquery.com/jquery.ajax/) - Asynchronous JavaScript 
-* [Movie Reviews API](https://developer.nytimes.com/docs/movie-reviews-api) - API for movie reviews
+* [NY Times API](https://developer.nytimes.com/docs/movie-reviews-api) - API for movie reviews
 * [OMDb API](http://www.omdbapi.com/) - API for movie information and photos
 * [Utelly](https://rapidapi.com/utelly/api/utelly)- API for universal movie search
 * [ipify](https://www.ipify.org/) - API used for IP Addresses
 * [VideoSpider](https://videospider.in/) - API used for movie links
-
+* [lodash](https://lodash.com) - API used to sort results in Ascending date order
 
 ## Authors
 
